@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter.Linear
 import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.math.MathUtils
+import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.ScreenUtils
 import com.badlogic.gdx.utils.viewport.FitViewport
@@ -47,10 +48,20 @@ class FirstScreen : KtxScreen {
 
     private var dropSprites : MutableList<Sprite>
 
+    private var dropTimer: Float = 0.0f
+
+    private var bucketRectangle: Rectangle
+    private var dropletRectangle: Rectangle
+
     init {
         bucketSprite.setSize(1f , 1f)
         touchPos = Vector2()
         dropSprites = emptyArray<Sprite>().toMutableList()
+        bucketRectangle = Rectangle()
+        dropletRectangle = Rectangle()
+        music.isLooping = true
+        music.volume = 0.5f
+        music.play()
         createDroplet()
     }
 
@@ -99,24 +110,43 @@ class FirstScreen : KtxScreen {
         val bucketHeight = bucketSprite.height
 
         bucketSprite.setX(MathUtils.clamp(bucketSprite.x, 0f, worldWidth - bucketWidth))
+        bucketRectangle.set(bucketSprite.x, bucketSprite.y, bucketWidth, bucketHeight)
 
-        for (droplet:Sprite in dropSprites){
-            droplet.translateY(-2f * delta)
+        for (i in dropSprites.size - 1 downTo 0) {
+            val dropSprite = dropSprites[i]
+            val dropWidth = dropSprite.width
+            val dropHeight = dropSprite.height
+
+            dropSprite.translateY(-2f * delta)
+            dropletRectangle.set(dropSprite.x, dropSprite.y, dropWidth, dropHeight)
+
+
+            if (dropSprite.y < -dropHeight) dropSprites.removeAt(i)
+            else if (bucketRectangle.overlaps(dropletRectangle)) {
+                dropSprites.removeAt(i)
+                dropSound.play()
+            }
+        }
+
+        dropTimer += delta
+        if (dropTimer > 1f) {
+            dropTimer = 0f
+            createDroplet()
         }
     }
 
     private fun draw(){
-        ScreenUtils.clear(Color.BLACK)
+        ScreenUtils.clear(Color.DARK_GRAY)
         viewport.apply()
         batch.projectionMatrix = viewport.camera.combined
 
         batch.begin()
 
-
         val worldWidth = viewport.worldWidth
         val worldHeight = viewport.worldHeight
 
-        batch.draw(backgroundTexture, 0f, 0f, worldWidth, worldHeight)
+        //batch.draw(backgroundTexture, 0f, 0f, worldWidth, worldHeight)
+
         bucketSprite.draw(batch)
 
         for (droplet in dropSprites){
