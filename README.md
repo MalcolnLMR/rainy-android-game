@@ -1,32 +1,112 @@
-# rain-simple-game
+<!-- Usei este modelo como base de edição: https://github.com/othneildrew/Best-README-Template -->
+<a id="readme-top"></a>
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <img src="readme-images/logo.png" alt="Logo-LibGDX-Simple-Game" width="100" height="100">
+  
+  <h2 align="center">Rainy - Simple Game Project</h2>
 
-This project was generated with a Kotlin project template that includes Kotlin application launchers and [KTX](https://libktx.github.io/) utilities.
+  <p align="center">
+    Rewriting <a href="https://libgdx.com/wiki/start/a-simple-game" target="_BLANK">Simple Game</a> from LibGDX into Kotlin for Android
+    <br/>
+  </p>
+</div>
+<!-- END: PROJECT LOGO -->
 
-## Platforms
+<!-- Tabela de resumo -->
+<details>
+  <summary>Summary</summary>
+  <ol>
+    <!-- Primeiro: About -->
+    <li>
+      <a href="#about-the-project">About the Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <!-- Segundo: Descrição (com sublista) -->
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <!-- Quarto: Como executar o projeto -->
+    <li>
+      <a href="#screenshots">Screenshots</a>
+    </li>
+    <!-- Sétimo: Futuras Melhorias -->
+    <li>
+      <a href="#future-plans">Future Plans</a>
+    </li>
+    <!-- Oitavo: Licença -->
+    <li>
+      <a href="#license">License</a>
+    </li>
+  </ol>
+</details>
+<!-- END: Tabela de resumo -->
 
-- `core`: Main module with the application logic shared by all platforms.
-- `android`: Android mobile platform. Needs Android SDK.
+<!-- SOBRE O PROJETO -->
+## About The Project
+This project is an study to learn how to parse some comands from Java/LibGDX to Kotlin/LibKTX, and to convert the "simple game" (from LibGDX Docs) to an android game.
+</br>
 
-## Gradle
+<!-- Funcionalidades -->
+#### Built With
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+- **Kotlin** 
+- **Android Studio**
+- **LibKTX**
+- **LibGDX LiftOff**
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `android:lint`: performs Android project validation.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `test`: runs unit tests (if any).
+<!-- END: Funcionalidades -->
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+<p align="right">(<a href="#readme-top">top</a>)</p>
+<!-- END: Descrição de projeto -->
+
+<!-- Como Executar o Projeto -->
+## Getting Started
+### Prerequisites
+- **Android Studio**
+- **JDK 21+**
+### Installation
+1. Clone the repo ```git clone https://github.com/MalcolnLMR/rain-android-game.git```
+2. Open with Android Studio (wait to gradle do its work)
+3. Run `Android/AndroidLauncher.kt`
+
+<p align="right">(<a href="#readme-top">top</a>)</p>
+<!-- END: Como Executar o Projeto -->
+
+<!-- Capturas de tela -->
+## Screenshots
+<div align="center">
+  <img src="readme-images/game.png" alt="Menu" width="198" height="467">
+</div>
+
+<p align="right">(<a href="#readme-top">top</a>)</p>
+<!-- END: Capturas de tela -->
+
+<!-- Futuras Melhorias -->
+## Future Plans
+1. Code Architeture rework
+2. Better background (one that at least fit on portrait mode)
+3. APK Build
+4. Asset rework
+5. Score System
+
+<p align="right">(<a href="#readme-top">top</a>)</p>
+<!-- END: Futuras Melhorias -->
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT. See `LICENSE` for more information.
+
+<p align="right">(<a href="#readme-top">top</a>)</p>
+<!-- END: LICENSE -->
